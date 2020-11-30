@@ -41,7 +41,7 @@ function Expand-BUPFile {
         Unprotect-BxorEncodedFile $DetailsPath
         $BUPDetails = $DetailsPath | Get-BUPFileDetails
         Write-Host "The BUP archive $FileName contains `"$($BUPDetails.File_0.OriginalName)`", which was detected as `"$($BUPDetails.Details.DetectionName)`""
-        
+        Write-Host "The details file was decoded and extracted to $DetailsPath"
         if ($Info) {
             Return $BUPDetails
         }
