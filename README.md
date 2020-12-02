@@ -52,7 +52,7 @@ Expanding the BUP archive...
 Decoding the BUP details file...
 The BUP archive 7e49612f3a3030 contains "C:\Windows\mssecsvc.exe", which was detected as "Generic.ayx"
 Decoding the BUP qurantined file...
-The quarantined file was decoded and extracted to C:\Users\graem\Code\BUP-Extractor\Sample Files\7e49612f3a3030\File_0
+The quarantined file was decoded and extracted to .\Sample Files\7e49612f3a3030\File_0
 Sample Files>  
 ```
 
@@ -64,7 +64,7 @@ Sample Files> Expand-BUPFile .\7e496101d35960.bup -InfoOnly
 Extracting the BUP details file...
 Decoding the BUP details file...
 The BUP archive 7e496101d35960 contains "C:\Windows\mssecsvc.exe", which was detected as "Generic.ayx"
-The details file was decoded and extracted to C:\Users\graem\Code\BUP-Extractor\Sample Files\7e496101d35960\Details
+The details file was decoded and extracted to .\Sample Files\7e496101d35960\Details
 Sample Files>
 ```
 

@@ -1,3 +1,67 @@
+<#
+.SYNOPSIS
+    Extracts and decodes files that have been quarantined by McAfee Anti-Virus from their .BUP containers.
+.DESCRIPTION
+    This PowerShell module extracts and decodes files that have been quarantined by McAfee Anti-Virus from their .BUP containers.
+
+    McAfee quarantines files first by encoding them using a bitwise XOR operation and the key "6A" (0x006a as a byte or 106 as a decimal).
+    Details of the qurantined file are stored in a text file, which is encoded with the same key. 
+    Both files (the quarantined file + the details file) are then combined in "Compound File Binary Format" file. AKA, "COM Structured Storage" or "OLE file".
+
+    This PowerShell module uses a 7-zip to extract the details and quarantined files, and a bespoke, compiled C DLL to quickly decode them in-place.
+
+.EXAMPLE
+    # Extract a BUP file
+    Sample Files> Expand-BUPFile .\7e49612f3a3030.bup
+
+    Expanding the BUP archive...
+    Decoding the BUP details file...
+    The BUP archive 7e49612f3a3030 contains "C:\Windows\mssecsvc.exe", which was detected as "Generic.ayx"
+    Decoding the BUP qurantined file...
+    The quarantined file was decoded and extracted to .\Sample Files\7e49612f3a3030\File_0
+    Sample Files>  
+
+
+    A simple demonstration of extracting the quarantined file.
+
+    .EXAMPLE
+    # Extract just the details from a BUP archive
+    Sample Files> Expand-BUPFile .\7e496101d35960.bup -InfoOnly
+
+    Extracting the BUP details file...
+    Decoding the BUP details file...
+    The BUP archive 7e496101d35960 contains "C:\Windows\mssecsvc.exe", which was detected as "Generic.ayx"
+    The details file was decoded and extracted to .\Sample Files\7e496101d35960\Details
+    Sample Files>
+
+
+    A simple demonstration of how to extract the "details" file from the container, without extracting the potentially malicious quarantined file.
+.INPUTS
+    [System.IO.FileInfo] $InputBUPFile,
+    [String] $OutputDirectory,
+    [Switch] $InfoOnly
+.OUTPUTS
+    Output (if any)
+.NOTES
+    Due to the nature of quarantined files, you are quite likely to extract and decode malicious files, which your anti-virus software may have a problem with.
+
+    Most AV programs will let you exclude a directory from AV scanning/alerting, which should give you somewhere safe to extract the quarantined files to.
+
+    BUP-Extractor also includes an "-InfoOnly" switch which will only extract and decode the "details" file and may be able to meet your needs without triggering your AV.
+.LINK
+    # Project repository
+    https://github.com/graememeyer/BUP-Extractor
+
+    # McAfee Knowledge Center: How to restore a quarantined file not listed in the Quarantine Manager
+    https://kc.mcafee.com/corporate/index?page=content&id=KB72755&actp=null&viewlocale=en_US&showDraft=false&locale=en_US
+
+    # Wikipedia: Compound File Binary Format
+    https://en.wikipedia.org/wiki/Compound_File_Binary_Format
+
+    # SANS ISC: Analyzing Quarantine Files
+    https://isc.sans.edu/forums/diary/Analyzing+Quarantine+Files/19867/
+#>
+
 function Expand-BUPFile {
     [alias("Expand-BUPContent")]
     [alias("Expand-BUPContents")]
