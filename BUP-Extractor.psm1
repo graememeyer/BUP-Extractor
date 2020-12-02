@@ -109,7 +109,7 @@ function Protect-Bytes {
 
             public class BXORClass
             {
-                [DllImport(".\\bin\\BXOR-DLL.dll")]
+                [DllImport("BXOR-DLL.dll")]
                 public static extern void BXORBytes(
                     [Out] byte[] byteArray,
                     int len,
@@ -117,6 +117,11 @@ function Protect-Bytes {
                 );
             }
 "@
+            $ModuleDirectory = (Get-Module "BUP-Extractor").Path | Split-Path -Parent
+
+            $DLLPath = Join-Path $ModuleDirectory -ChildPath '\bin\BXOR-DLL.dll'
+            $DLLPath = $DLLPath -replace '\\', '\\'
+            $Sourcecode = $Sourcecode -replace "BXOR-DLL.dll", $DLLPath
             Add-Type -TypeDefinition $SourceCode
         }
 
