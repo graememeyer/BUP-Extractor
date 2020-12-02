@@ -52,3 +52,5 @@ Sample Files>
 
 This project is distrubuted under the MIT license, with the exception of the included 7-Zip executable
 which is distributed under the LGPL License, as per the 7-Zip "License for use and distribution" notice.
+
+Please see the LICENSE file for more information.
