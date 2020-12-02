@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    Extracts and decodes files that have been quarantined by McAfee Anti-Virus from their .BUP containers.
+    Extracts and decodes files that have been quarantined by McAfee Anti-Virus from their .bup containers.
 .DESCRIPTION
-    This PowerShell module extracts and decodes files that have been quarantined by McAfee Anti-Virus from their .BUP containers.
+    This PowerShell module extracts and decodes files that have been quarantined by McAfee Anti-Virus from their .bup containers.
 
     McAfee quarantines files first by encoding them using a bitwise XOR operation and the key "6A" (0x006a as a byte or 106 as a decimal).
     Details of the qurantined file are stored in a text file, which is encoded with the same key. 

@@ -14,30 +14,10 @@ Sample Files> Get-Command -Module BUP-Extractor
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Alias           BxorDecode-Bytes                                   0.0        BUP-Extractor
-Alias           BxorDecode-File                                    0.0        BUP-Extractor
-Alias           BxorEncode-Bytes                                   0.0        BUP-Extractor
-Alias           BxorEncode-File                                    0.0        BUP-Extractor
-Alias           Bxor-File                                          0.0        BUP-Extractor
-Alias           Decode-BupFile                                     0.0        BUP-Extractor
-Alias           Decode-BytesWithBxor                               0.0        BUP-Extractor
-Alias           Encode-BupFile                                     0.0        BUP-Extractor
-Alias           Encode-BytesWithBxor                               0.0        BUP-Extractor
-Alias           Expand-BUPArchive                                  0.0        BUP-Extractor
-Alias           Expand-BUPContent                                  0.0        BUP-Extractor
-Alias           Expand-BUPContents                                 0.0        BUP-Extractor
-Alias           Get-BUPFileDetails                                 0.0        BUP-Extractor
-Alias           Get-QuarantinedFileInfo                            0.0        BUP-Extractor
-Alias           Get-QuarantineFileDetails                          0.0        BUP-Extractor
-Alias           Get-QuarantineFileInfo                             0.0        BUP-Extractor
-Alias           Protect-BxorEncodedFile                            0.0        BUP-Extractor
-Alias           Unprotect-BupFile                                  0.0        BUP-Extractor
-Alias           Unprotect-BxorEncodedFile                          0.0        BUP-Extractor
-Alias           Unprotect-Bytes                                    0.0        BUP-Extractor
-Function        Expand-BUPFile                                     0.0        BUP-Extractor
-Function        Get-BUPFileInfo                                    0.0        BUP-Extractor
-Function        Protect-BupFile                                    0.0        BUP-Extractor
-Function        Protect-Bytes                                      0.0        BUP-Extractor
+Function        Expand-BUPFile                                     1.0        BUP-Extractor
+Function        Get-BUPFileInfo                                    1.0        BUP-Extractor
+Function        Protect-BupFile                                    1.0        BUP-Extractor
+Function        Protect-Bytes                                      1.0        BUP-Extractor
 
 Sample Files>
 ```
